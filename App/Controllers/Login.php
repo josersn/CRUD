@@ -1,7 +1,7 @@
 <?php
 
-
-namespace App\Controllers;
+namespace App\Controller;
+require ("App/Core/Connect.php");
 
 
 use App\Core\Connect;
@@ -9,36 +9,34 @@ use PDO;
 
 class Login extends Connect
 {
-    public function login(string $email,string $senha)
+    public function entrar(string $mail,string $pass)
     {
-       $sql = "SELECT * FROM login WHERE login = :email AND senha = :senha";
-       $db = self::getInstance();
+        $db = self::getInstance();
+        $sql = "SELECT * FROM login WHERE login = :mail AND senha = :senha";
         $stmt = $db->prepare($sql);
 
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->bindValue(':senha', $email, PDO::PARAM_STR);
+        $stmt->bindValue(":mail", $mail );
+        $stmt->bindValue(":senha", $pass );
+
         $stmt->execute();
 
-       var_dump($stmt);
+        if($stmt->rowCount() == 1){
+            $dados = $stmt->fetch(PDO::FETCH_OBJ);
+            $_SESSION["logado"] = true;
+            $_SESSION["administrador"] = ['nome' => $dados->login];
+            header("Location: Painel.php");
+        }else {
+                echo "<script>alert('Falha, Login e/ou Senha errada')</script>";
+        }
     }
-}
 
-//$sql  = "SELECT * FROM login WHERE login = :email AND senha = :senha";
-//$db = Connect::getInstance();
-//$stmt = $db->prepare($sql);
-//
-//$stmt->bindValue(':email', $email, PDO::PARAM_STR);
-//$stmt->bindValue(':senha', $senha, PDO::PARAM_STR);
-//
-//$stmt->execute();
-//
-//if ($stmt-> rowCount() == 1) {
-//    echo "foi";
-//    $_SESSION['logado'] = true;
-//          header("Location: Logado.php");
-//    return true;
-//} else {
-//    echo "caiu no false";
-//
-//    return false;
-//}
+    public static function deslogar()
+    {
+        if (isset($_SESSION['logado'])) {
+            unset($_SESSION['logado']);
+            session_destroy();
+            header("Location: index.php");
+        }
+    }
+    
+}
