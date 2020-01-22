@@ -36,7 +36,7 @@ class User extends Connect
         return $query;
     }
 
-    public function update()
+    public function update($value, $column)
     {
         $db = self::getInstance();
 //        $sql = "UPDATE clientes SET ";
@@ -56,7 +56,7 @@ class User extends Connect
 
     }
 
-    private function dMail($mail)
+    private function verifyMail(string $mail)
 {
     $db = self::getInstance();
     $sql = "SELECT email FROM clientes WHERE email = :email";
@@ -66,11 +66,18 @@ class User extends Connect
 
     $stmt->execute();
 
-    if($stmt->rowCount() == 1){
-        return true;
-    }else{
-        return false;
-    }
+    //return boolean to verify
 
+}
+private function verifyUser (string $user){
+        $db = self::getInstance();
+        $sql = "SELECT user FROM clientes WHERE user = :user";
+        $stmt = $db->prepare();
+
+        $stmt->bindValue(":user",$user);
+
+        $stmt->execute();
+
+        //return boolean to verify
 }
 }

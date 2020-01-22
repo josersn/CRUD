@@ -3,7 +3,7 @@ session_start();
 
 if(isset($_POST['btn-entrar'])){
     require ("App/Controllers/Login.php");
-    $login = new \App\Controller\Login();
+    $login = new \App\Controllers\Login();
     $mail = filter_var($_POST['login'], FILTER_SANITIZE_STRIPPED);
     $pasword = filter_var($_POST['senha'], FILTER_SANITIZE_STRIPPED);
     $login->entrar($mail, $pasword);

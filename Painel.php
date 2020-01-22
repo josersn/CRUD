@@ -27,18 +27,17 @@ if(isset($_POST['sair'])){
     <a href="newUser.php" class="link-new">Novo Usuario.</a>
     <form action="#" method="post">
     <button href="index.php" name="sair">Sair</button>
-
     </form>
 </div>
 <div class="list">
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">nome</th>
-      <th scope="col">sobrenome</th>
-      <th scope="col">email</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">E-mail</th>
       <th scope="col">Editar</th>
-      <th scope="col">deletar</th>
+      <th scope="col">Deletar</th>
     </tr>
   </thead>
   <tbody>
@@ -46,10 +45,10 @@ if(isset($_POST['sair'])){
     foreach ($user->read() as $client){
 ?>
     <tr>
-      <th scope="row"><?= $client['nome']?></th>
+      <th><?= $client['nome']?></th>
       <td><?= $client['sobrenome']?></td>
       <td><?= $client['email']?></td>
-      <td><a href="editar.php">Editar</a></td>
+      <td><a href="edit.php">Editar</a></td>
       <td><a href="deletar.php">Excluir</a></td>
     </tr>
     <?php } ?>

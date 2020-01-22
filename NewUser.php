@@ -31,7 +31,9 @@ if(isset($_POST['cadastrar'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="Painel.php">Voltar Para o Painel</a>
+<div class="line">
+    <a href="Painel.php" class="back">Voltar Para o Painel</a>
+</div>
 <form action="" method="post" class="form-newuser">
     <label for="nome">Nome :</label>
     <input type="text" required name="nome" id="nome">
@@ -57,7 +59,7 @@ if(isset($_POST['cadastrar'])){
     <input type="text" required name="usuario" id="usuario">
     <label for="senha">Senha :</label>
     <input type="password" required name="senha" id="senha">
-    <button type="submit" required name="cadastrar">Inscrever Cliente</button>
+    <button type="submit" required class="btn-newUser" name="cadastrar">Inscrever Cliente</button>
 </form>
 </body>
 </html>
