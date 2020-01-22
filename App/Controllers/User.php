@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 
 require ("App/Core/Connect.php");
 
@@ -36,7 +36,7 @@ class User extends Connect
         return $query;
     }
 
-    public function update($id)
+    public function update()
     {
         $db = self::getInstance();
 //        $sql = "UPDATE clientes SET ";
@@ -55,4 +55,22 @@ class User extends Connect
         echo "<script>alert('Usuário deletado')</script>";
 
     }
+
+    private function dMail($mail)
+{
+    $db = self::getInstance();
+    $sql = "SELECT email FROM clientes WHERE email = :email";
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(":email", $mail);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() == 1){
+        return true;
+    }else{
+        return false;
+    }
+
+}
 }

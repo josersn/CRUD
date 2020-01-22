@@ -1,6 +1,65 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+/*panel page */
+
+.container{
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: #494949;
+}
+.form-login {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.form-login input {
+    margin: 10px 0;
+}
+.form-login label {
+    color: #ffffff;
+    font-size: 1.2em;
+}
+.form-login button {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0.2rem  2rem;
+    background: #ffffff;
+    border: none;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.form-login button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+/* painel page  */
+.line {
+background: #007AAF;
+color: #ffffff;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1rem 2rem;
+}
+.link-new{
+    color: #007AAF;
+    background: #ffffff;
+    padding: 0.6rem 2rem;
+}
+.line > form > button {
+    color: #007AAF;
+    border: none;
+    background: #ffffff;
+    padding: 0.6rem 2rem;
+    cursor: pointer;
 }
 /* New user Page  */
 

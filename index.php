@@ -17,17 +17,21 @@ if(isset($_POST['btn-entrar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Login - CRUD</title>
 </head>
 <body>
     <main>
-        <form action="" method="post">
-        <label for="login">Usuário :</label>
-            <input type="text" name="login" id="login" required>
-            <label for="senha">Senha :</label>
-            <input type="password" name="senha" id="senha" required>
-            <button type="submit" name="btn-entrar">Entrar</button>
-        </form>
+        <div class="container">
+            <img src="Assets/logo-pentaxial-10-anos.svg" alt="">
+            <form action="" method="post" class="form-login">
+                <label for="login">Usuário :</label>
+                <input type="text" name="login" id="login" required>
+                <label for="senha">Senha :</label>
+                <input type="password" name="senha" id="senha" required>
+                <button type="submit" name="btn-entrar">Entrar</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
