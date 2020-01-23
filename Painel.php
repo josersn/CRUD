@@ -2,6 +2,7 @@
 
 require("App/Controllers/User.php");
 $user = new \App\Controllers\User();
+$user->redirect();
 if($user->read() != null){
 }else {
     echo  "<h2>Nem um Cliente Cadastrado</h2>";
@@ -48,7 +49,7 @@ if(isset($_POST['sair'])){
       <th><?= $client['nome']?></th>
       <td><?= $client['sobrenome']?></td>
       <td><?= $client['email']?></td>
-      <td><a href="edit.php">Editar</a></td>
+      <td><a href="edit.php?name=<?= $client['nome']?>">Editar</a></td>
       <td><a href="deletar.php">Excluir</a></td>
     </tr>
     <?php } ?>

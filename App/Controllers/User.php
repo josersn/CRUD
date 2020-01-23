@@ -80,4 +80,10 @@ private function verifyUser (string $user){
 
         //return boolean to verify
 }
+    public function redirect()
+    {
+        if(isset($_SESSION["logado"])){
+            header("Location: index.php");
+        }
+    }
 }

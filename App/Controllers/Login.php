@@ -38,5 +38,12 @@ class Login extends Connect
             header("Location: index.php");
         }
     }
+
+    public function redirect()
+    {
+        if(isset($_SESSION["logado"])){
+            header("Location: index.php");
+        }
+    }
     
 }
